@@ -146,7 +146,8 @@ export default function HomePage() {
                 <Link href="/search">
                   <Button
                     size="lg"
-                    className="bg-white text-primary hover:bg-white/90 shadow-lg min-w-[200px]"
+                    variant="ghost"
+                    className="bg-white !text-primary hover:bg-white/90 shadow-lg min-w-[200px]"
                   >
                     <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
@@ -157,8 +158,8 @@ export default function HomePage() {
                 <Link href="/verify">
                   <Button
                     size="lg"
-                    variant="outline"
-                    className="border-white/30 text-white hover:bg-white/10 min-w-[200px]"
+                    variant="ghost"
+                    className="border border-white/30 !text-white hover:bg-white/10 min-w-[200px]"
                   >
                     <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
@@ -333,7 +334,8 @@ export default function HomePage() {
               <Link href="/register">
                 <Button
                   size="lg"
-                  className="bg-white text-primary hover:bg-white/90 min-w-[200px]"
+                  variant="ghost"
+                  className="bg-white !text-primary hover:bg-white/90 shadow-lg min-w-[200px]"
                 >
                   নাগরিক নিবন্ধন
                 </Button>
@@ -341,8 +343,8 @@ export default function HomePage() {
               <Link href="/search">
                 <Button
                   size="lg"
-                  variant="outline"
-                  className="border-white/30 text-white hover:bg-white/10 min-w-[200px]"
+                  variant="ghost"
+                  className="border border-white/30 !text-white hover:bg-white/10 min-w-[200px]"
                 >
                   তথ্য অনুসন্ধান
                 </Button>
