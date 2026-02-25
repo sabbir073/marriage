@@ -2,14 +2,78 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardTitle, CardDescription } from "@/components/ui/card";
+import { createClient } from "@/lib/supabase/client";
 
 export default function RegisterPage() {
-  const [step, setStep] = useState<"nid" | "verify" | "complete">("nid");
+  const [step, setStep] = useState<"form" | "complete">("form");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const router = useRouter();
+
+  async function handleRegister(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setError("");
+    setLoading(true);
+
+    const formData = new FormData(e.currentTarget);
+    const fullNameBn = formData.get("fullNameBn") as string;
+    const email = formData.get("email") as string;
+    const mobile = formData.get("mobile") as string;
+    const nidNumber = formData.get("nidNumber") as string;
+    const password = formData.get("password") as string;
+    const confirmPassword = formData.get("confirmPassword") as string;
+
+    if (password !== confirmPassword) {
+      setError("পাসওয়ার্ড মিলছে না।");
+      setLoading(false);
+      return;
+    }
+
+    if (password.length < 6) {
+      setError("পাসওয়ার্ড কমপক্ষে ৬ অক্ষরের হতে হবে।");
+      setLoading(false);
+      return;
+    }
+
+    try {
+      const supabase = createClient();
+
+      const { error: authError } = await supabase.auth.signUp({
+        email,
+        password,
+        options: {
+          data: {
+            full_name_bn: fullNameBn,
+            nid_number: nidNumber || null,
+            mobile: mobile || null,
+            role: "CITIZEN",
+          },
+        },
+      });
+
+      if (authError) {
+        if (authError.message.includes("already registered")) {
+          setError("এই ইমেইল দিয়ে ইতোমধ্যে অ্যাকাউন্ট আছে।");
+        } else {
+          setError(authError.message);
+        }
+        setLoading(false);
+        return;
+      }
+
+      setStep("complete");
+    } catch {
+      setError("নিবন্ধন করতে সমস্যা হয়েছে। আবার চেষ্টা করুন।");
+    } finally {
+      setLoading(false);
+    }
+  }
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -22,110 +86,66 @@ export default function RegisterPage() {
             </div>
             <h1 className="text-2xl font-bold text-text">নাগরিক নিবন্ধন</h1>
             <p className="mt-1 text-sm text-text-secondary">
-              NID দিয়ে আপনার অ্যাকাউন্ট তৈরি করুন
+              আপনার অ্যাকাউন্ট তৈরি করুন
             </p>
           </div>
 
-          {/* Progress Steps */}
-          <div className="flex items-center justify-center gap-2 mb-8">
-            {[
-              { key: "nid", label: "NID যাচাই" },
-              { key: "verify", label: "OTP যাচাই" },
-              { key: "complete", label: "সম্পন্ন" },
-            ].map((s, i) => (
-              <div key={s.key} className="flex items-center gap-2">
-                <div
-                  className={`flex h-8 w-8 items-center justify-center rounded-full text-sm font-medium ${
-                    step === s.key
-                      ? "bg-primary text-white"
-                      : i < ["nid", "verify", "complete"].indexOf(step)
-                      ? "bg-success text-white"
-                      : "bg-surface-tertiary text-text-muted"
-                  }`}
-                >
-                  {i < ["nid", "verify", "complete"].indexOf(step) ? "✓" : i + 1}
-                </div>
-                <span className="text-xs text-text-secondary hidden sm:inline">
-                  {s.label}
-                </span>
-                {i < 2 && (
-                  <div className="w-8 h-px bg-border mx-1" />
-                )}
-              </div>
-            ))}
-          </div>
-
-          {step === "nid" && (
-            <Card padding="lg">
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  setStep("verify");
-                }}
-                className="space-y-4"
-              >
-                <CardTitle>NID তথ্য দিন</CardTitle>
-                <CardDescription>
-                  আপনার জাতীয় পরিচয়পত্রের তথ্য দিয়ে পরিচয় যাচাই করুন
-                </CardDescription>
-                <Input
-                  label="জাতীয় পরিচয়পত্র নম্বর (NID)"
-                  placeholder="১০ বা ১৭ সংখ্যার NID নম্বর"
-                  required
-                />
-                <Input
-                  label="জন্ম তারিখ"
-                  type="date"
-                  required
-                />
-                <div className="rounded-[var(--radius-md)] bg-blue-50 p-3 text-sm text-blue-700">
-                  <strong>NID যাচাই:</strong> আপনার NID নম্বর ও জন্ম তারিখ দিয়ে
-                  পরিচয় যাচাই করা হবে। NID-তে নিবন্ধিত মোবাইল নম্বরে OTP পাঠানো হবে।
-                </div>
-                <Button type="submit" className="w-full" size="lg">
-                  NID যাচাই করুন
-                </Button>
-              </form>
-            </Card>
+          {/* Error message */}
+          {error && (
+            <div className="mb-4 rounded-[var(--radius-md)] border border-red-200 bg-red-50 p-3 text-sm text-red-700">
+              {error}
+            </div>
           )}
 
-          {step === "verify" && (
+          {step === "form" && (
             <Card padding="lg">
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  setStep("complete");
-                }}
-                className="space-y-4"
-              >
-                <CardTitle>OTP যাচাই</CardTitle>
+              <form onSubmit={handleRegister} className="space-y-4">
+                <CardTitle>নতুন অ্যাকাউন্ট তৈরি করুন</CardTitle>
                 <CardDescription>
-                  আপনার NID-তে নিবন্ধিত মোবাইল নম্বরে ৬ সংখ্যার কোড পাঠানো হয়েছে
+                  আপনার তথ্য দিয়ে অ্যাকাউন্ট নিবন্ধন করুন
                 </CardDescription>
-
-                {/* Auto-filled from NID */}
-                <div className="rounded-[var(--radius-md)] bg-green-50 border border-green-200 p-3 space-y-1">
-                  <p className="text-xs text-green-600 font-medium">NID থেকে প্রাপ্ত তথ্য ✓</p>
-                  <p className="text-sm text-green-800 font-medium">মোঃ আব্দুল করিম</p>
-                  <p className="text-xs text-green-700">মোবাইল: ০১৭XX-XXXXXX</p>
-                </div>
-
                 <Input
-                  label="OTP কোড"
-                  placeholder="৬ সংখ্যার কোড"
-                  maxLength={6}
+                  label="পূর্ণ নাম (বাংলা)"
+                  name="fullNameBn"
+                  placeholder="আপনার পূর্ণ নাম বাংলায় লিখুন"
                   required
                 />
-                <Button type="submit" className="w-full" size="lg">
-                  যাচাই করুন ও নিবন্ধন সম্পন্ন করুন
+                <Input
+                  label="ইমেইল"
+                  name="email"
+                  type="email"
+                  placeholder="আপনার ইমেইল"
+                  required
+                />
+                <Input
+                  label="মোবাইল নম্বর"
+                  name="mobile"
+                  type="tel"
+                  placeholder="০১XXXXXXXXX"
+                />
+                <Input
+                  label="জাতীয় পরিচয়পত্র নম্বর (NID)"
+                  name="nidNumber"
+                  placeholder="১০ বা ১৭ সংখ্যার NID নম্বর"
+                  hint="ঐচ্ছিক — পরেও দেওয়া যাবে"
+                />
+                <Input
+                  label="পাসওয়ার্ড"
+                  name="password"
+                  type="password"
+                  placeholder="কমপক্ষে ৬ অক্ষর"
+                  required
+                />
+                <Input
+                  label="পাসওয়ার্ড নিশ্চিত করুন"
+                  name="confirmPassword"
+                  type="password"
+                  placeholder="আবার পাসওয়ার্ড লিখুন"
+                  required
+                />
+                <Button type="submit" className="w-full" size="lg" disabled={loading}>
+                  {loading ? "নিবন্ধন হচ্ছে..." : "নিবন্ধন করুন"}
                 </Button>
-                <button
-                  type="button"
-                  onClick={() => setStep("nid")}
-                  className="w-full text-sm text-text-secondary hover:text-primary"
-                >
-                  ← NID তথ্য পরিবর্তন করুন
-                </button>
               </form>
             </Card>
           )}
@@ -141,14 +161,12 @@ export default function RegisterPage() {
               </div>
               <CardTitle>নিবন্ধন সফল!</CardTitle>
               <p className="mt-2 text-sm text-text-secondary">
-                আপনার অ্যাকাউন্ট সফলভাবে তৈরি হয়েছে। এখন আপনি লগইন করতে পারবেন।
+                আপনার অ্যাকাউন্ট সফলভাবে তৈরি হয়েছে।
               </p>
               <div className="mt-6 space-y-3">
-                <Link href="/citizen/dashboard">
-                  <Button className="w-full" size="lg">
-                    ড্যাশবোর্ডে যান
-                  </Button>
-                </Link>
+                <Button className="w-full" size="lg" onClick={() => { router.push("/citizen/dashboard"); router.refresh(); }}>
+                  ড্যাশবোর্ডে যান
+                </Button>
                 <Link href="/citizen/apply">
                   <Button variant="outline" className="w-full" size="lg">
                     বিবাহ নিবন্ধনের আবেদন করুন

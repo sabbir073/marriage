@@ -8,11 +8,11 @@ import { toBanglaDigits } from "@/lib/utils";
 
 const STEPS = [
   { id: 1, title: "বর ও কনের তথ্য", titleEn: "Groom & Bride" },
-  { id: 2, title: "বিবাহের তথ্য ও নথি", titleEn: "Marriage & Documents" },
+  { id: 2, title: "গির্জা ও বিবাহ", titleEn: "Church & Marriage" },
   { id: 3, title: "পর্যালোচনা ও জমা", titleEn: "Review & Submit" },
 ];
 
-export default function CitizenHinduApplyPage() {
+export default function CitizenChristianApplyPage() {
   const [step, setStep] = useState(1);
   const [submitted, setSubmitted] = useState(false);
 
@@ -29,8 +29,9 @@ export default function CitizenHinduApplyPage() {
   const [brideAddress, setBrideAddress] = useState("");
 
   const [marriageDate, setMarriageDate] = useState("");
-  const [marriagePlace, setMarriagePlace] = useState("");
-  const [rituals, setRituals] = useState("");
+  const [churchName, setChurchName] = useState("");
+  const [pastorName, setPastorName] = useState("");
+  const [churchPermission, setChurchPermission] = useState("");
 
   const next = () => setStep((s) => Math.min(s + 1, STEPS.length));
   const prev = () => setStep((s) => Math.max(s - 1, 1));
@@ -41,9 +42,9 @@ export default function CitizenHinduApplyPage() {
         <svg className="mx-auto h-16 w-16 text-green-600 mb-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
-        <CardTitle className="text-green-800 text-xl">হিন্দু বিবাহ আবেদন জমা হয়েছে</CardTitle>
-        <p className="text-green-700 mt-2">আবেদন নম্বর: <span className="font-mono font-bold">APP-H-{toBanglaDigits(2026)}-{toBanglaDigits("012")}</span></p>
-        <p className="text-sm text-green-600 mt-1">হিন্দু বিবাহ নিবন্ধক আবেদনটি পর্যালোচনা করবেন।</p>
+        <CardTitle className="text-green-800 text-xl">খ্রিস্টান বিবাহ আবেদন জমা হয়েছে</CardTitle>
+        <p className="text-green-700 mt-2">আবেদন নম্বর: <span className="font-mono font-bold">APP-C-{toBanglaDigits(2026)}-{toBanglaDigits("005")}</span></p>
+        <p className="text-sm text-green-600 mt-1">খ্রিস্টান বিবাহ নিবন্ধক আবেদনটি পর্যালোচনা করবেন।</p>
         <div className="mt-6 flex justify-center gap-3">
           <Button onClick={() => window.location.href = "/citizen/applications"}>আমার আবেদন দেখুন</Button>
           <Button variant="outline" onClick={() => { setSubmitted(false); setStep(1); }}>নতুন আবেদন</Button>
@@ -55,15 +56,15 @@ export default function CitizenHinduApplyPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-text">হিন্দু বিবাহ আবেদন</h1>
-        <p className="text-sm text-text-secondary mt-1">হিন্দু বিবাহ নিবন্ধন আইন, ২০১২ অনুযায়ী — ঐচ্ছিক কিন্তু সুপারিশকৃত</p>
+        <h1 className="text-2xl font-bold text-text">খ্রিস্টান বিবাহ আবেদন</h1>
+        <p className="text-sm text-text-secondary mt-1">খ্রিস্টান বিবাহ আইন, ১৮৭২ অনুযায়ী</p>
       </div>
 
       <Card padding="sm">
         <div className="flex items-center gap-1">
           {STEPS.map((s, i) => (
             <div key={s.id} className="flex items-center">
-              <button onClick={() => setStep(s.id)} className={`flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-medium whitespace-nowrap cursor-pointer ${step === s.id ? "bg-orange-600 text-white" : step > s.id ? "bg-green-100 text-green-700" : "bg-surface-tertiary text-text-muted"}`}>
+              <button onClick={() => setStep(s.id)} className={`flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-medium whitespace-nowrap cursor-pointer ${step === s.id ? "bg-purple-600 text-white" : step > s.id ? "bg-green-100 text-green-700" : "bg-surface-tertiary text-text-muted"}`}>
                 {step > s.id ? "✓" : toBanglaDigits(s.id)} <span className="hidden sm:inline">{s.title}</span>
               </button>
               {i < STEPS.length - 1 && <div className={`mx-1 h-px w-6 ${step > s.id ? "bg-green-300" : "bg-border"}`} />}
@@ -100,11 +101,13 @@ export default function CitizenHinduApplyPage() {
           <div className="space-y-4">
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <Input label="বিবাহের তারিখ" type="date" value={marriageDate} onChange={(e) => setMarriageDate(e.target.value)} />
-              <Input label="বিবাহের স্থান" value={marriagePlace} onChange={(e) => setMarriagePlace(e.target.value)} />
+              <Input label="গির্জার নাম" value={churchName} onChange={(e) => setChurchName(e.target.value)} />
+              <Input label="যাজক/পাদ্রীর নাম" value={pastorName} onChange={(e) => setPastorName(e.target.value)} />
             </div>
             <div>
-              <label className="block text-sm font-medium text-text mb-1.5">সম্পাদিত ধর্মীয় অনুষ্ঠান</label>
-              <textarea className="w-full rounded-[var(--radius-md)] border border-border bg-white px-3 py-2 text-sm min-h-[80px] focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary" placeholder="সপ্তপদী, অগ্নিসাক্ষী, সিন্দূরদান ইত্যাদি" value={rituals} onChange={(e) => setRituals(e.target.value)} />
+              <label className="block text-sm font-medium text-text mb-1.5">গির্জার অনুমতিপত্র</label>
+              <p className="text-xs text-text-muted mb-2">গির্জা কর্তৃপক্ষের অনুমতিপত্র থাকতে হবে। অ্যাপয়েন্টমেন্টের সময় মূল কপি জমা দিতে হবে।</p>
+              <Input label="অনুমতিপত্রের বিবরণ" placeholder="অনুমতিপত্রের নম্বর বা তারিখ" value={churchPermission} onChange={(e) => setChurchPermission(e.target.value)} />
             </div>
             <p className="text-xs text-text-muted">নথি (NID, ছবি) অ্যাপয়েন্টমেন্টের সময় জমা দিতে হবে।</p>
           </div>
@@ -118,7 +121,7 @@ export default function CitizenHinduApplyPage() {
                 <p className="text-text-muted">বর:</p><p className="font-medium">{groomName || "—"}</p>
                 <p className="text-text-muted">কনে:</p><p className="font-medium">{brideName || "—"}</p>
                 <p className="text-text-muted">তারিখ:</p><p>{marriageDate || "—"}</p>
-                <p className="text-text-muted">স্থান:</p><p>{marriagePlace || "—"}</p>
+                <p className="text-text-muted">গির্জা:</p><p>{churchName || "—"}</p>
               </div>
             </div>
           </div>

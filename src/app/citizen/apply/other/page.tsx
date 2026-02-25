@@ -5,27 +5,38 @@ import { Card, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select } from "@/components/ui/select";
+import { toBanglaDigits } from "@/lib/utils";
 
-export default function CitizenSpecialApplyPage() {
+const STEPS = [
+  { id: 1, title: "উভয় পক্ষের তথ্য", titleEn: "Both Parties" },
+  { id: 2, title: "পর্যালোচনা ও জমা", titleEn: "Review & Submit" },
+];
+
+const RELIGION_OPTS = [
+  { value: "", label: "নির্বাচন" },
+  { value: "ইসলাম", label: "ইসলাম" },
+  { value: "হিন্দু", label: "হিন্দু" },
+  { value: "খ্রিস্টান", label: "খ্রিস্টান" },
+  { value: "বৌদ্ধ", label: "বৌদ্ধ" },
+  { value: "শিখ", label: "শিখ" },
+  { value: "জৈন", label: "জৈন" },
+  { value: "বাহাই", label: "বাহাই" },
+  { value: "অন্যান্য", label: "অন্যান্য" },
+];
+
+export default function CitizenOtherApplyPage() {
   const [step, setStep] = useState(1);
   const [submitted, setSubmitted] = useState(false);
 
   const [p1Name, setP1Name] = useState("");
   const [p1Nid, setP1Nid] = useState("");
   const [p1Religion, setP1Religion] = useState("");
+
   const [p2Name, setP2Name] = useState("");
   const [p2Nid, setP2Nid] = useState("");
   const [p2Religion, setP2Religion] = useState("");
-  const [preferredDistrict, setPreferredDistrict] = useState("");
 
-  const RELIGION_OPTS = [
-    { value: "", label: "নির্বাচন" },
-    { value: "ইসলাম", label: "ইসলাম" },
-    { value: "হিন্দু", label: "হিন্দু" },
-    { value: "খ্রিস্টান", label: "খ্রিস্টান" },
-    { value: "বৌদ্ধ", label: "বৌদ্ধ" },
-    { value: "অন্যান্য", label: "অন্যান্য" },
-  ];
+  const [preferredDistrict, setPreferredDistrict] = useState("");
 
   if (submitted) {
     return (
@@ -33,8 +44,8 @@ export default function CitizenSpecialApplyPage() {
         <svg className="mx-auto h-16 w-16 text-green-600 mb-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
-        <CardTitle className="text-green-800 text-xl">বিশেষ বিবাহ আবেদন জমা হয়েছে</CardTitle>
-        <p className="text-green-700 mt-2">১৪ দিনের নোটিশ প্রক্রিয়া শুরু হবে নিবন্ধকের অনুমোদনের পর।</p>
+        <CardTitle className="text-green-800 text-xl">বিবাহ আবেদন জমা হয়েছে</CardTitle>
+        <p className="text-green-700 mt-2">বিশেষ বিবাহ নিবন্ধক আবেদনটি পর্যালোচনা করবেন।</p>
         <div className="mt-6 flex justify-center gap-3">
           <Button onClick={() => window.location.href = "/citizen/applications"}>আমার আবেদন দেখুন</Button>
           <Button variant="outline" onClick={() => { setSubmitted(false); setStep(1); }}>নতুন আবেদন</Button>
@@ -46,16 +57,25 @@ export default function CitizenSpecialApplyPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-text">বিশেষ বিবাহ আবেদন</h1>
-        <p className="text-sm text-text-secondary mt-1">বিশেষ বিবাহ আইন, ১৮৭২ — আন্তঃধর্মীয় বা সিভিল বিবাহ</p>
+        <h1 className="text-2xl font-bold text-text">অন্যান্য ধর্মের বিবাহ আবেদন</h1>
+        <p className="text-sm text-text-secondary mt-1">বিশেষ বিবাহ আইন, ১৮৭২ এর আওতায়</p>
       </div>
 
-      <div className="rounded-[var(--radius-md)] border-2 border-blue-300 bg-blue-50 p-3 text-sm text-blue-700">
-        <strong>গুরুত্বপূর্ণ:</strong> বিশেষ বিবাহে ১৪ দিনের নোটিশ বাধ্যতামূলক। আবেদন অনুমোদিত হলে নিবন্ধক নোটিশ প্রকাশ করবেন।
-      </div>
+      <Card padding="sm">
+        <div className="flex items-center gap-1">
+          {STEPS.map((s, i) => (
+            <div key={s.id} className="flex items-center">
+              <button onClick={() => setStep(s.id)} className={`flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-medium whitespace-nowrap cursor-pointer ${step === s.id ? "bg-slate-700 text-white" : step > s.id ? "bg-green-100 text-green-700" : "bg-surface-tertiary text-text-muted"}`}>
+                {step > s.id ? "✓" : toBanglaDigits(s.id)} <span className="hidden sm:inline">{s.title}</span>
+              </button>
+              {i < STEPS.length - 1 && <div className={`mx-1 h-px w-6 ${step > s.id ? "bg-green-300" : "bg-border"}`} />}
+            </div>
+          ))}
+        </div>
+      </Card>
 
       <Card>
-        <CardTitle className="mb-4">{step === 1 ? "উভয় পক্ষের তথ্য" : "পর্যালোচনা ও জমা"}</CardTitle>
+        <CardTitle className="mb-4">{STEPS[step - 1].title}</CardTitle>
 
         {step === 1 && (
           <div className="space-y-6">
@@ -76,12 +96,14 @@ export default function CitizenSpecialApplyPage() {
         )}
 
         {step === 2 && (
-          <div className="rounded-[var(--radius-md)] border border-green-200 bg-green-50 p-4">
-            <h3 className="text-sm font-semibold text-green-800 mb-2">সারসংক্ষেপ</h3>
-            <div className="grid grid-cols-2 gap-2 text-sm">
-              <p className="text-text-muted">পক্ষ ১:</p><p className="font-medium">{p1Name || "—"} ({p1Religion || "—"})</p>
-              <p className="text-text-muted">পক্ষ ২:</p><p className="font-medium">{p2Name || "—"} ({p2Religion || "—"})</p>
-              <p className="text-text-muted">জেলা:</p><p>{preferredDistrict || "—"}</p>
+          <div className="space-y-4">
+            <div className="rounded-[var(--radius-md)] border border-green-200 bg-green-50 p-4">
+              <h3 className="text-sm font-semibold text-green-800 mb-2">সারসংক্ষেপ</h3>
+              <div className="grid grid-cols-2 gap-2 text-sm">
+                <p className="text-text-muted">পক্ষ ১:</p><p className="font-medium">{p1Name || "—"} ({p1Religion || "—"})</p>
+                <p className="text-text-muted">পক্ষ ২:</p><p className="font-medium">{p2Name || "—"} ({p2Religion || "—"})</p>
+                <p className="text-text-muted">জেলা:</p><p>{preferredDistrict || "—"}</p>
+              </div>
             </div>
           </div>
         )}

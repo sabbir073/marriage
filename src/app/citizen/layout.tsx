@@ -1,6 +1,7 @@
 "use client";
 
 import { PortalLayout } from "@/components/layout/portal-layout";
+import { useUser } from "@/hooks/use-user";
 
 const CITIZEN_NAV = [
   {
@@ -60,14 +61,17 @@ const CITIZEN_NAV = [
 ];
 
 export default function CitizenLayout({ children }: { children: React.ReactNode }) {
+  const { user, signOut } = useUser();
+
   return (
     <PortalLayout
       portalName="নাগরিক পোর্টাল"
       portalNameEn="Citizen Portal"
-      userName="মোঃ আব্দুল করিম"
+      userName={user?.fullNameBn || "লোড হচ্ছে..."}
       userRole="নাগরিক"
       navItems={CITIZEN_NAV}
       accentColor="bg-secondary"
+      onSignOut={signOut}
     >
       {children}
     </PortalLayout>

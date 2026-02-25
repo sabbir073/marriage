@@ -1,6 +1,14 @@
 "use client";
 
 import { PortalLayout } from "@/components/layout/portal-layout";
+import { useUser } from "@/hooks/use-user";
+
+const KAZI_TYPE_LABELS: Record<string, string> = {
+  MUSLIM: "মুসলিম নিকাহ রেজিস্ট্রার",
+  HINDU: "হিন্দু বিবাহ নিবন্ধক",
+  CHRISTIAN: "খ্রিস্টান বিবাহ নিবন্ধক",
+  SPECIAL: "বিশেষ বিবাহ নিবন্ধক",
+};
 
 const KAZI_NAV = [
   {
@@ -31,14 +39,20 @@ const KAZI_NAV = [
 ];
 
 export default function KaziLayout({ children }: { children: React.ReactNode }) {
+  const { user, signOut } = useUser();
+
+  const kaziType = user?.kaziProfile?.kazi_type || "MUSLIM";
+  const roleLabel = KAZI_TYPE_LABELS[kaziType] || "কাজী";
+
   return (
     <PortalLayout
       portalName="কাজী পোর্টাল"
       portalNameEn="Kazi Portal"
-      userName="মাওলানা আব্দুর রহমান"
-      userRole="মুসলিম নিকাহ রেজিস্ট্রার — ধানমন্ডি, ঢাকা"
+      userName={user?.fullNameBn || "লোড হচ্ছে..."}
+      userRole={roleLabel}
       navItems={KAZI_NAV}
       accentColor="bg-primary"
+      onSignOut={signOut}
     >
       {children}
     </PortalLayout>

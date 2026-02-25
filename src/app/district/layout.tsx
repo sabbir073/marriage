@@ -1,6 +1,7 @@
 "use client";
 
 import { PortalLayout } from "@/components/layout/portal-layout";
+import { useUser } from "@/hooks/use-user";
 
 const DISTRICT_NAV = [
   {
@@ -31,14 +32,17 @@ const DISTRICT_NAV = [
 ];
 
 export default function DistrictLayout({ children }: { children: React.ReactNode }) {
+  const { user, signOut } = useUser();
+
   return (
     <PortalLayout
       portalName="জেলা নিবন্ধক পোর্টাল"
       portalNameEn="District Registrar Portal"
-      userName="জনাব মোঃ আনিসুর রহমান"
-      userRole="জেলা নিবন্ধক — ঢাকা"
+      userName={user?.fullNameBn || "লোড হচ্ছে..."}
+      userRole="জেলা নিবন্ধক"
       navItems={DISTRICT_NAV}
       accentColor="bg-secondary"
+      onSignOut={signOut}
     >
       {children}
     </PortalLayout>

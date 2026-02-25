@@ -1,6 +1,7 @@
 "use client";
 
 import { PortalLayout } from "@/components/layout/portal-layout";
+import { useUser } from "@/hooks/use-user";
 
 const ADMIN_NAV = [
   {
@@ -79,14 +80,19 @@ const ADMIN_NAV = [
 ];
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
+  const { user, signOut } = useUser();
+
+  const roleLabel = user?.role === "SUPER_ADMIN" ? "সুপার অ্যাডমিন" : "সিস্টেম প্রশাসক";
+
   return (
     <PortalLayout
       portalName="মন্ত্রণালয় পোর্টাল"
       portalNameEn="Ministry Admin Portal"
-      userName="মোঃ আবুল কালাম আজাদ"
-      userRole="সিস্টেম প্রশাসক"
+      userName={user?.fullNameBn || "লোড হচ্ছে..."}
+      userRole={roleLabel}
       navItems={ADMIN_NAV}
       accentColor="bg-secondary"
+      onSignOut={signOut}
     >
       {children}
     </PortalLayout>
