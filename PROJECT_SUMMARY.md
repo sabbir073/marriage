@@ -54,27 +54,43 @@ A 4-portal platform (Citizen, Kazi, District, Ministry) that digitizes the entir
 
 | SI | IT Infrastructure | Solution Provider | Budget (Crore BDT) |
 |----|-------------------|-------------------|--------------------:|
-| 1 | Datacenter | APC, Systemax, CCTV, Access Control, AC, Rack | 15 |
-| 2 | Network Infrastructure | Cisco | 20 |
-| 3 | Database Server | PostgreSQL (Open Source), DELL | 8 |
-| 4 | Application Server / Web Server | Hyper Convergence System | 15 |
-| 5 | Datacenter & Cyber Security | Symantec / F5 | 12 |
-| 6 | Load Balancer | F5 | 10 |
-| 7 | Call Center | — | 5 |
+| 1 | Datacenter | APC, Systemax, CCTV, Access Control, AC, Rack | 12 |
+| 2 | Network Infrastructure | Cisco | 15 |
+| 3 | Database Server | PostgreSQL (Open Source), DELL | 5 |
+| 4 | Application Server / Web Server | Hyper Convergence System | 10 |
+| 5 | Datacenter & Cyber Security | Symantec / F5 | 10 |
+| 6 | Load Balancer | F5 | 8 |
+| 7 | Call Center | — | 3 |
 | 8 | Monitoring System | SolarWinds | 5 |
-| 9 | Backup & Disaster Recovery System | DELL EMC | 8 |
-| 10 | Kazi / Registrar Office Setup (Laptop + Printer + Connectivity) | DELL, HP, Cisco | 80 |
-| 11 | Application & Web Application Development | — | 50 |
-| 12 | Data Entry (Previous Records) with Storage | — | 30 |
-| 13 | Training & Implementation (Nationwide, 64 Districts) | — | 25 |
-| 14 | Annual Maintenance & Upgrades (Year 1) | — | 12 |
-| 15 | VAPT & Security Audit (Third Party) | — | 5 |
-| | **Total** | | **300** |
+| 9 | Backup & Disaster Recovery System | DELL EMC | 5 |
+| 10 | Kazi / Registrar Office Setup (Laptop + Printer + Connectivity) | DELL, HP, Cisco | 90 |
+| 11 | Application & Web Application Development | — | 30 |
+| 12 | Data Entry (Previous Records) with Storage | — | 20 |
+| 13 | Training (Nationwide, 64 Districts) | — | 18 |
+| 14 | Implementation & Rollout (Nationwide) | — | 12 |
+| 15 | Annual Maintenance & Upgrades (Year 1) | — | 5 |
+| 16 | VAPT & Security Audit (Third Party) | — | 4 |
+| | **Total** | | **252** |
 
-**Recurring Annual Cost:** ~12-15 Crore/year (maintenance, hosting, security, support, upgrades based on Ministry requirements)
+**Recurring Annual Cost:** ~8-12 Crore/year (maintenance, hosting, security, support, upgrades based on Ministry requirements)
 
-**Revenue Model (Subject to Ministry Decision):**
-Registration fee, Kazi fee, certificate fee, and other fees — all collected digitally with full transparency and audit trail.
+**Revenue Model for Government (Subject to Ministry Decision):**
+
+| SI | Revenue Source | Description | Est. Annual Revenue (Crore BDT) |
+|----|---------------|-------------|--------------------------------:|
+| 1 | Marriage Registration Fee | Per marriage registration (all 6 types) | 45-75 |
+| 2 | Divorce Registration Fee | Per divorce registration | 3-5 |
+| 3 | Kazi License / Renewal Fee | Annual Kazi registration and license renewal | 5-10 |
+| 4 | Certificate Issuance Fee | Original certificate per registration | 15-25 |
+| 5 | Duplicate Certificate Fee | Re-issuance / duplicate copy requests | 2-5 |
+| 6 | Certificate Verification API | Paid API access for banks, employers, legal firms, embassies | 5-10 |
+| 7 | Data Entry / Correction Fee | Amendment or correction of registered records | 1-3 |
+| 8 | Penalty / Late Registration Fee | Late registration beyond stipulated period | 2-5 |
+| 9 | Court Order Processing Fee | Judicial divorce and court order registrations | 1-2 |
+| 10 | Appointment / Expedited Service Fee | Priority processing and scheduled appointments | 1-3 |
+| | **Estimated Total Annual Revenue** | | **80-143** |
+
+*Based on ~15 lakh marriages annually. All fees collected digitally through the platform with full transparency, audit trail, and direct government treasury deposit.*
 
 ---
 
