@@ -98,12 +98,14 @@ A 4-portal platform (Citizen, Kazi, District, Ministry) that digitizes the entir
 
 | Phase | Duration | Deliverables |
 |-------|----------|-------------|
-| **Phase 1** — Foundation | Weeks 1-4 | Auth, Muslim marriage registration, Kazi portal, certificates |
-| **Phase 2** — All Types | Weeks 5-8 | All marriage forms, public search, certificate verification, citizen flow |
-| **Phase 3** — Divorce | Weeks 9-12 | All divorce types, dashboards, notifications, digital registry book |
-| **Phase 4** — Launch | Weeks 13-16 | i18n, audit portals, reports, security hardening, VAPT, training, deployment |
+| **Phase 1** — Foundation & Core System | Month 1-3 | Infrastructure setup, datacenter, auth system, Muslim marriage (Nikah Nama) registration, Kazi portal, certificate generation with QR |
+| **Phase 2** — All Marriage Types | Month 4-6 | Hindu, Christian, Buddhist, Special & Other marriage forms, NID & Birth Certificate API integration, public search & certificate verification portal |
+| **Phase 3** — Divorce & Citizen Portal | Month 7-9 | All divorce types with iddat tracking, citizen application flow, appointment system, document upload & management |
+| **Phase 4** — Dashboards & Oversight | Month 10-12 | District Registrar audit portal, Ministry admin portal, national dashboard, digital registry book, reporting & data export (PDF/CSV) |
+| **Phase 5** — Data Entry & Integration | Month 13-15 | Previous paper record digitization, SMS/notification system, call center setup, Bangla/English i18n, revenue collection module |
+| **Phase 6** — Testing, Training & Launch | Month 16-18 | VAPT & security audit, pilot rollout (5 districts), nationwide training, full 64-district deployment, monitoring & handover |
 
-**Total: 16 weeks (4 months) to production-ready system**
+**Total: 18 months (1.5 years) — from development to nationwide deployment**
 
 ---
 
