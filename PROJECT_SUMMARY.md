@@ -50,17 +50,28 @@ A 4-portal platform (Citizen, Kazi, District, Ministry) that digitizes the entir
 
 ## 5. Commercial Summary
 
-**What We Deliver:**
+**IT Infrastructure & Budget:**
 
-| Deliverable | Details |
-|-------------|---------|
-| **Software** | Marriage & divorce management system — all 6 types, 4 portals, public verification |
-| **Datacenter & Server** | Custom dedicated server with custom datacenter |
-| **Devices** | Laptop + printer for every Kazi |
-| **Training** | Regular training for Kazis, District Registrars, and Ministry officials |
-| **Implementation** | Nationwide rollout across 64 districts |
-| **Maintenance & Upgrades** | Ongoing support and software upgradation based on Ministry requirements |
-| **Security** | Data privacy, VAPT (Vulnerability Assessment & Penetration Testing) |
+| SI | IT Infrastructure | Solution Provider | Budget (Crore BDT) |
+|----|-------------------|-------------------|--------------------:|
+| 1 | Datacenter | APC, Systemax, CCTV, Access Control, AC, Rack | 15 |
+| 2 | Network Infrastructure | Cisco | 20 |
+| 3 | Database Server | PostgreSQL (Open Source), DELL | 8 |
+| 4 | Application Server / Web Server | Hyper Convergence System | 15 |
+| 5 | Datacenter & Cyber Security | Symantec / F5 | 12 |
+| 6 | Load Balancer | F5 | 10 |
+| 7 | Call Center | — | 5 |
+| 8 | Monitoring System | SolarWinds | 5 |
+| 9 | Backup & Disaster Recovery System | DELL EMC | 8 |
+| 10 | Kazi / Registrar Office Setup (Laptop + Printer + Connectivity) | DELL, HP, Cisco | 80 |
+| 11 | Application & Web Application Development | — | 50 |
+| 12 | Data Entry (Previous Records) with Storage | — | 30 |
+| 13 | Training & Implementation (Nationwide, 64 Districts) | — | 25 |
+| 14 | Annual Maintenance & Upgrades (Year 1) | — | 12 |
+| 15 | VAPT & Security Audit (Third Party) | — | 5 |
+| | **Total** | | **300** |
+
+**Recurring Annual Cost:** ~12-15 Crore/year (maintenance, hosting, security, support, upgrades based on Ministry requirements)
 
 **Revenue Model (Subject to Ministry Decision):**
 Registration fee, Kazi fee, certificate fee, and other fees — all collected digitally with full transparency and audit trail.
