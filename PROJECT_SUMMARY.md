@@ -5,9 +5,7 @@
 
 ## 1. Project Summary
 
-A unified government-grade digital platform to digitize Bangladesh's entirely paper-based marriage and divorce registration system. The platform supports **all 6 marriage types** (Muslim, Hindu, Christian, Buddhist, Special, Other) and **all divorce types** across **all 64 districts, 495 upazilas, and 4,500+ unions** — enabling online registration, NID & Birth Certificate verification, QR-authenticated digital certificates, and tiered role-based access from citizen to ministry level.
-
-The system does not replace or change any existing process — it simply digitizes what Kazis and citizens already do manually on paper, while keeping the paper-based option available for those who prefer it.
+A government-grade digital platform to digitize Bangladesh's paper-based marriage and divorce registration. Supports **all 6 marriage types** and **all divorce types** across **64 districts, 495 upazilas, and 4,500+ unions**. The system does not change any existing process — it digitizes what is already done on paper, while keeping the paper option available. ~15 lakh marriages are registered annually in Bangladesh.
 
 ---
 
@@ -15,53 +13,38 @@ The system does not replace or change any existing process — it simply digitiz
 
 | Problem | Impact |
 |---------|--------|
-| **100% paper-based system** | Physical registers maintained by 50,000+ Kazis with no central database |
-| **Child marriage goes undetected** | No age verification mechanism; underage marriages registered without NID/Birth Certificate cross-check |
-| **No verification mechanism** | Fake marriage certificates are untraceable; no way to verify authenticity |
-| **No marital status check** | Bigamy goes undetected — a person's marital history in one district is invisible to Kazis in another |
-| **marriage.gov.bd is non-functional** | Only lists registrar contact info — zero registration, search, or verification capability |
-| **No government oversight** | District Registrars and Ministry have no real-time visibility into registration data or Kazi activity |
-| **Citizen inconvenience** | Multiple in-person visits, long processing times, no appointment system, no status tracking |
-| **Data loss risk** | Fire, flood, or physical damage to registers means permanent loss of irreplaceable legal records |
-| **Revenue leakage** | No centralized fee collection; unregistered marriages mean lost government revenue |
+| **100% paper-based** | 50,000+ Kazis maintain physical registers with no central database |
+| **Child marriage undetected** | No age verification — underage marriages registered without NID/Birth Certificate check |
+| **No certificate verification** | Fake certificates untraceable; bigamy undetected across districts |
+| **marriage.gov.bd non-functional** | Only lists contact info — no registration, search, or verification |
+| **No government visibility** | Ministry and District Registrars have zero real-time oversight |
+| **Data loss risk** | Physical register damage means permanent loss of legal records |
+| **Revenue leakage** | No centralized fee collection or tracking |
 
 ---
 
 ## 3. Our Solution
 
-**A 4-portal digital platform with role-based access:**
+A 4-portal platform (Citizen, Kazi, District, Ministry) that digitizes the entire registration workflow:
 
-| Portal | Users | Key Capabilities |
-|--------|-------|-------------------|
-| **Citizen** | General public | Apply online, track status, download certificates, book appointments |
-| **Kazi** | 50,000+ registrars | Register marriages/divorces, verify NID & Birth Certificate, manage digital registry book, issue certificates — faster and easier than paper |
-| **District** | 64 district registrars | Audit all registrations, monitor Kazi activity, generate reports |
-| **Ministry** | Government officials | National dashboard, manage registrars & jurisdictions, nationwide reports |
-
-**Key Features:**
-- **Child marriage prevention** — NID & Birth Certificate API verification blocks underage registration at source
-- **QR-coded digital certificates** — instant public verification, eliminates forgery
-- **Public marital status search** by NID (privacy-first: shows name + status only)
-- **Complete audit trail** — every action logged, tamper-proof records
-- **All 6 marriage types + all divorce types** including Muslim Talaq with 90-day iddat tracking
-- **Bangla-first interface** with English toggle, mobile-responsive
-- **Paper option preserved** — Kazis can continue paper-based work alongside the digital system
+- **NID & Birth Certificate API** verification prevents child marriage and fraud at source
+- **QR-coded digital certificates** with instant public verification
+- **Marital status search** by NID — prevents bigamy across jurisdictions
+- **Complete audit trail** — every action logged, tamper-proof
+- **All 6 marriage types + all divorce types** with full legal compliance
+- **Bangla-first**, mobile-responsive, with English toggle
+- **Paper option preserved** — no disruption to current workflow
 
 ---
 
 ## 4. Benefits for the Nation
 
-**Child Marriage Prevention** — Automated age verification via NID & Birth Certificate API makes it impossible to register underage marriages
-
-**Faster Service for Kazis & Citizens** — What takes multiple visits and days on paper can be completed online in minutes; Kazis get a streamlined digital workflow
-
-**Digital Impact** — Bangladesh joins the growing list of nations with fully digitized civil registration, strengthening Digital Bangladesh initiatives
-
-**Government Oversight** — Real-time national data, district-level monitoring, fraud prevention, and evidence-based policy making
-
-**Legal Integrity** — Instant marital status verification eliminates bigamy loopholes; digitally signed QR certificates eliminate forgery
-
-**National Statistics** — Accurate marriage/divorce data by region, religion, age, and gender for demographic planning
+- **Child marriage prevention** — automated age verification blocks underage registration
+- **Faster service** — minutes online vs. multiple visits and days on paper
+- **Government oversight** — real-time national data and district-level monitoring
+- **Fraud elimination** — QR certificates and NID verification end forgery and bigamy
+- **Digital Bangladesh** — fully digitized civil registration at national scale
+- **Accurate national statistics** — marriage/divorce data by region, religion, age for policy planning
 
 ---
 
@@ -71,27 +54,16 @@ The system does not replace or change any existing process — it simply digitiz
 
 | Deliverable | Details |
 |-------------|---------|
-| **Software** | Full marriage & divorce management system (all 6 types), 4 portals, public verification |
-| **Datacenter & Server** | Custom dedicated server with custom datacenter hosting |
-| **Training** | Comprehensive training for Kazis, District Registrars, and Ministry officials |
+| **Software** | Marriage & divorce management system — all 6 types, 4 portals, public verification |
+| **Datacenter & Server** | Custom dedicated server with custom datacenter |
+| **Devices** | Laptop + printer for every Kazi |
+| **Training** | Regular training for Kazis, District Registrars, and Ministry officials |
 | **Implementation** | Nationwide rollout across 64 districts |
-| **Devices** | Laptops for Kazis to enable digital registration |
-| **Maintenance** | Ongoing system maintenance and support |
-| **Upgrades** | Regular software upgradation based on Ministry requirements |
-| **Security** | Data privacy compliance, VAPT (Vulnerability Assessment & Penetration Testing) |
+| **Maintenance & Upgrades** | Ongoing support and software upgradation based on Ministry requirements |
+| **Security** | Data privacy, VAPT (Vulnerability Assessment & Penetration Testing) |
 
 **Revenue Model (Subject to Ministry Decision):**
-
-| Fee Type | Description |
-|----------|-------------|
-| Registration Fee | Collected per marriage/divorce registration |
-| Kazi Fee | Service fee for Kazi facilitation |
-| Certificate Fee | Per certificate issuance and duplicate copies |
-| Other Fees | Additional fees as determined by Ministry |
-
-All fees collected digitally through the platform with full transparency and audit trail.
-
-**Market Size:** ~15 lakh marriages annually across Bangladesh
+Registration fee, Kazi fee, certificate fee, and other fees — all collected digitally with full transparency and audit trail.
 
 ---
 
@@ -99,14 +71,13 @@ All fees collected digitally through the platform with full transparency and aud
 
 | Phase | Duration | Deliverables |
 |-------|----------|-------------|
-| **Phase 1** — Foundation | Weeks 1-4 | Auth system, Muslim marriage (Nikah Nama) registration, Kazi portal, basic certificates |
-| **Phase 2** — All Marriage Types | Weeks 5-8 | Hindu, Christian, Buddhist, Special marriage forms, public search & certificate verification, citizen application flow |
-| **Phase 3** — Divorce & Dashboards | Weeks 9-12 | Muslim & non-Muslim divorce, role-specific dashboards, notification system, digital registry book |
-| **Phase 4** — Launch | Weeks 13-16 | Full Bangla/English i18n, district & ministry portals, reports/export, security hardening, VAPT, training, production deployment |
+| **Phase 1** — Foundation | Weeks 1-4 | Auth, Muslim marriage registration, Kazi portal, certificates |
+| **Phase 2** — All Types | Weeks 5-8 | All marriage forms, public search, certificate verification, citizen flow |
+| **Phase 3** — Divorce | Weeks 9-12 | All divorce types, dashboards, notifications, digital registry book |
+| **Phase 4** — Launch | Weeks 13-16 | i18n, audit portals, reports, security hardening, VAPT, training, deployment |
 
 **Total: 16 weeks (4 months) to production-ready system**
 
 ---
 
-*Technology: Next.js 15, TypeScript, PostgreSQL, Custom Datacenter*
 *Compliance: Muslim Marriages & Divorces Act 1974, Hindu Marriage Act 2012, Special Marriage Act 1872, Christian Marriage Act 1872*
