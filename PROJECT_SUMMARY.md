@@ -54,22 +54,13 @@ A 4-portal platform (Citizen, Kazi, District, Ministry) that digitizes the entir
 
 | SI | IT Infrastructure | Solution Provider | Budget (Crore BDT) |
 |----|-------------------|-------------------|--------------------:|
-| 1 | Datacenter | APC, Systemax, CCTV, Access Control, AC, Rack | 12 |
-| 2 | Network Infrastructure | Cisco | 15 |
-| 3 | Database Server | Oracle, DELL | 8 |
-| 4 | Application Server / Web Server | Hyper Convergence System | 10 |
-| 5 | Datacenter & Cyber Security | Symantec / F5 | 10 |
-| 6 | Load Balancer | F5 | 8 |
-| 7 | Call Center | — | 2 |
-| 8 | Monitoring System | SolarWinds | 3 |
-| 9 | Backup & Disaster Recovery System | DELL EMC | 5 |
-| 10 | Kazi / Registrar Office Setup (Laptop + Printer + Connectivity) | DELL, HP, Cisco | 90 |
-| 11 | Application & Web Application Development | — | 30 |
-| 12 | Data Entry (Previous Records) with Storage | — | 20 |
-| 13 | Training (Nationwide, 64 Districts) | — | 18 |
-| 14 | Implementation & Rollout (Nationwide) | — | 12 |
-| 15 | Annual Maintenance & Upgrades (Year 1) | — | 5 |
-| 16 | VAPT & Security Audit (Third Party) | — | 4 |
+| 1 | Datacenter, Network & Security | APC, Cisco, Symantec, F5 | 47 |
+| 2 | Servers, Database, Backup & Monitoring | Oracle, DELL EMC, SolarWinds | 26 |
+| 3 | Kazi / Registrar Office Setup (Laptop + Printer + Connectivity) | DELL, HP, Cisco | 90 |
+| 4 | Application & Web Application Development | — | 30 |
+| 5 | Data Entry (Previous Records) with Storage | — | 20 |
+| 6 | Training, Implementation & Rollout (Nationwide, 64 Districts) | — | 30 |
+| 7 | VAPT, Security Audit & Annual Maintenance (Year 1) | — | 9 |
 | | **Total** | | **252** |
 
 **Recurring Annual Cost:** ~8-12 Crore/year (maintenance, hosting, security, support, upgrades based on Ministry requirements)
