@@ -56,12 +56,12 @@ A 4-portal platform (Citizen, Kazi, District, Ministry) that digitizes the entir
 |----|-------------------|-------------------|--------------------:|
 | 1 | Datacenter | APC, Systemax, CCTV, Access Control, AC, Rack | 12 |
 | 2 | Network Infrastructure | Cisco | 15 |
-| 3 | Database Server | PostgreSQL (Open Source), DELL | 5 |
+| 3 | Database Server | Oracle, DELL | 8 |
 | 4 | Application Server / Web Server | Hyper Convergence System | 10 |
 | 5 | Datacenter & Cyber Security | Symantec / F5 | 10 |
 | 6 | Load Balancer | F5 | 8 |
-| 7 | Call Center | — | 3 |
-| 8 | Monitoring System | SolarWinds | 5 |
+| 7 | Call Center | — | 2 |
+| 8 | Monitoring System | SolarWinds | 3 |
 | 9 | Backup & Disaster Recovery System | DELL EMC | 5 |
 | 10 | Kazi / Registrar Office Setup (Laptop + Printer + Connectivity) | DELL, HP, Cisco | 90 |
 | 11 | Application & Web Application Development | — | 30 |
@@ -98,14 +98,14 @@ A 4-portal platform (Citizen, Kazi, District, Ministry) that digitizes the entir
 
 | Phase | Duration | Deliverables |
 |-------|----------|-------------|
-| **Phase 1** — Foundation & Core System | Month 1-3 | Infrastructure setup, datacenter, auth system, Muslim marriage (Nikah Nama) registration, Kazi portal, certificate generation with QR |
-| **Phase 2** — All Marriage Types | Month 4-6 | Hindu, Christian, Buddhist, Special & Other marriage forms, NID & Birth Certificate API integration, public search & certificate verification portal |
-| **Phase 3** — Divorce & Citizen Portal | Month 7-9 | All divorce types with iddat tracking, citizen application flow, appointment system, document upload & management |
-| **Phase 4** — Dashboards & Oversight | Month 10-12 | District Registrar audit portal, Ministry admin portal, national dashboard, digital registry book, reporting & data export (PDF/CSV) |
-| **Phase 5** — Data Entry & Integration | Month 13-15 | Previous paper record digitization, SMS/notification system, call center setup, Bangla/English i18n, revenue collection module |
-| **Phase 6** — Testing, Training & Launch | Month 16-18 | VAPT & security audit, pilot rollout (5 districts), nationwide training, full 64-district deployment, monitoring & handover |
+| **Phase 1** — Foundation & Core System | Month 1-4 | Infrastructure setup, datacenter, network, auth system, Muslim marriage (Nikah Nama) registration, Kazi portal, certificate generation with QR |
+| **Phase 2** — All Marriage Types | Month 5-8 | Hindu, Christian, Buddhist, Special & Other marriage forms, NID & Birth Certificate API integration, public search & certificate verification portal |
+| **Phase 3** — Divorce & Citizen Portal | Month 9-12 | All divorce types with iddat tracking, citizen application flow, appointment system, document upload & management |
+| **Phase 4** — Dashboards & Oversight | Month 13-16 | District Registrar audit portal, Ministry admin portal, national dashboard, digital registry book, reporting & data export (PDF/CSV), revenue collection module |
+| **Phase 5** — Data Entry & Integration | Month 17-20 | Previous paper record digitization, SMS/notification system, call center setup, Bangla/English i18n, VAPT & security audit |
+| **Phase 6** — Training, Pilot & Nationwide Launch | Month 21-24 | Pilot rollout (5 districts), nationwide training for all 64 districts, full deployment, monitoring, performance optimization & handover |
 
-**Total: 18 months (1.5 years) — from development to nationwide deployment**
+**Total: 24 months (2 years) — from development to nationwide deployment**
 
 ---
 
